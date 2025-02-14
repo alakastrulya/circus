@@ -6,6 +6,10 @@ public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
+        System.out.println("We have beans like : socks - cellophane bag - box - cupboard - circus");
+        System.out.println("The information below proves the the beans are connected to each other and work correctly");
+        System.out.println();
+
         Socks socks = (Socks) context.getBean(Socks.class);
         socks.setColor("blue");
         System.out.println("The socks color:");
@@ -46,6 +50,11 @@ public class Main {
         System.out.println(circus.getName());
         System.out.println("The circus's cupboard height:");
         System.out.println(circus.getCupboard().getHeight());
+
+        Kazakhstan Kazakhstan = context.getBean(Kazakhstan.class);
+        Kazakhstan.setName("KZ");
+        Kazakhstan.setCircus(circus);
+        System.out.println(Kazakhstan.getCircus());
 
 
 
